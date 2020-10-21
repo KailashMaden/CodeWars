@@ -20,3 +20,18 @@ const sumTwoSmallestNumbers = (numbers) => {
 const numbers = [19, 5, 42, 2, 77];
 console.log(sumTwoSmallestNumbers(numbers));
 
+// Problem 3
+// Input: String - "The sunset sets at twelve o' clock"
+// Output: Should return - "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11"
+
+const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
+const alphabetPosition = (text) => {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z]/g, '')
+    .split('')
+    .map((letter) => alphabet.indexOf(letter) + 1)
+    .join(' ');
+};
+
+console.log(alphabetPosition("The sunset sets at twelve o' clock."));
