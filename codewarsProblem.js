@@ -35,3 +35,19 @@ const alphabetPosition = (text) => {
 };
 
 console.log(alphabetPosition("The sunset sets at twelve o' clock."));
+
+// Problem 4
+// Input: Vowel count: example: abracadabra
+// Output: 5
+
+const getCount = (str) => {
+  const vowelCount = str.split('').reduce((acc, letter) => {
+    if (letter.match(/[aeiou]/g)) {
+      return acc + 1;
+    }
+    return acc;
+  }, 0);
+  return vowelCount;
+};
+
+console.log(getCount('abracadabra'));
