@@ -51,3 +51,8 @@ const getCount = (str) => {
 };
 
 console.log(getCount('abracadabra'));
+
+// Problem 4 (Optional Solution in short)
+
+const letterCount = (words) => (words.match(/[aeiou]/gi) || []).length;
+console.log(letterCount('abracadabra'));
