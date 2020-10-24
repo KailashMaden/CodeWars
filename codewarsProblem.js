@@ -56,3 +56,30 @@ console.log(getCount('abracadabra'));
 
 const letterCount = (words) => (words.match(/[aeiou]/gi) || []).length;
 console.log(letterCount('abracadabra'));
+
+// Problem 5
+// INPUT iqTest("2 4 7 8 10") => OUTPUT 3 Third number is odd, while the rest of the numbers are even
+// INPUT iqTest("1 2 1 1") => OUTPUT 2 Second number is even, while the rest of the numbers are odd
+
+function iqTest(numbers) {
+  numbers = numbers.split(' ').map(function (el) {
+    return parseInt(el);
+  });
+
+  var odd = numbers.filter(function (el) {
+    return el % 2 === 1;
+  });
+  var even = numbers.filter(function (el) {
+    return el % 2 === 0;
+  });
+
+  console.log(numbers.indexOf(odd[0]));
+  console.log(numbers.indexOf(even[0]));
+
+  return odd.length < even.length
+    ? numbers.indexOf(odd[0]) + 1
+    : numbers.indexOf(even[0]) + 1;
+}
+
+iqTest('2 4 7 8 10');
+// console.log(iqTest('2 4 7 8 10'));
