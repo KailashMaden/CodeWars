@@ -1,4 +1,4 @@
-//Problem 1
+//------------------------------------------------Problem 1
 // Input: songDecoder('WUBWEWUBWUBAREWUBWUBTHEWUBCHAMPIONSWUBMYWUBFRIEND')
 // Output: WE ARE THE CHAMPIONS MY FRIEND
 
@@ -8,7 +8,7 @@ const songDecoder = (song) => song.replace(/(WUB)+/g, ' ').trim();
 const result = songDecoder('WUBWEWUBWUBAREWUBWUBTHEWUBCHAMPIONSWUBMYWUBFRIEND');
 console.log(result);
 
-// Problem 2
+// ----------------------------------------------Problem 2
 // Input: When an array is passed like [19, 5, 42, 2, 77]
 // Output: should be 5+2 = 7
 
@@ -20,7 +20,7 @@ const sumTwoSmallestNumbers = (numbers) => {
 const numbers = [19, 5, 42, 2, 77];
 console.log(sumTwoSmallestNumbers(numbers));
 
-// Problem 3
+// --------------------------------------------Problem 3
 // Input: String - "The sunset sets at twelve o' clock"
 // Output: Should return - "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11"
 
@@ -36,7 +36,7 @@ const alphabetPosition = (text) => {
 
 console.log(alphabetPosition("The sunset sets at twelve o' clock."));
 
-// Problem 4
+// ------------------------------------------Problem 4
 // Input: Vowel count: example: abracadabra
 // Output: 5
 
@@ -52,12 +52,13 @@ const getCount = (str) => {
 
 console.log(getCount('abracadabra'));
 
-// Problem 4 (Optional Solution in short)
+// ----------------------------------------Problem 4 (Optional Solution in short)
 
 const letterCount = (words) => (words.match(/[aeiou]/gi) || []).length;
 console.log(letterCount('abracadabra'));
 
-// Problem 5
+
+// ----------------------------------------Problem 5
 // INPUT iqTest("2 4 7 8 10") => OUTPUT 3 Third number is odd, while the rest of the numbers are even
 // INPUT iqTest("1 2 1 1") => OUTPUT 2 Second number is even, while the rest of the numbers are odd
 
@@ -83,3 +84,27 @@ function iqTest(numbers) {
 
 iqTest('2 4 7 8 10');
 // console.log(iqTest('2 4 7 8 10'));
+
+//--------------------------------------- Problem 6
+
+// Input: persistence(39) === 3 // because 3*9 = 27, 2*7 = 14, 1*4=4
+                       // and 4 has only one digit
+//  persistence(999) === 4,  because 9*9*9 = 729, 7*2*9 = 126,
+//   1*2*6 = 12, and finally 1*2 = 2
+
+//  persistence(4) === 0,  because 4 is already a one-digit number
+
+function persistence(num) {
+  var num = num.toString();
+  var inArr = num.split('');
+  result = 1;
+  if(inArr.length == 1) {
+    return 0;
+    
+  } else {
+    for(var i=0; i<inArr.length; i++) {
+      result = result * num[i];
+    }
+   return 1 + persistence(result);
+  }
+}
