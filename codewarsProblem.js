@@ -57,7 +57,6 @@ console.log(getCount('abracadabra'));
 const letterCount = (words) => (words.match(/[aeiou]/gi) || []).length;
 console.log(letterCount('abracadabra'));
 
-
 // ----------------------------------------Problem 5
 // INPUT iqTest("2 4 7 8 10") => OUTPUT 3 Third number is odd, while the rest of the numbers are even
 // INPUT iqTest("1 2 1 1") => OUTPUT 2 Second number is even, while the rest of the numbers are odd
@@ -88,7 +87,7 @@ iqTest('2 4 7 8 10');
 //--------------------------------------- Problem 6
 
 // Input: persistence(39) === 3 // because 3*9 = 27, 2*7 = 14, 1*4=4
-                       // and 4 has only one digit
+// and 4 has only one digit
 //  persistence(999) === 4,  because 9*9*9 = 729, 7*2*9 = 126,
 //   1*2*6 = 12, and finally 1*2 = 2
 
@@ -98,13 +97,35 @@ function persistence(num) {
   var num = num.toString();
   var inArr = num.split('');
   result = 1;
-  if(inArr.length == 1) {
+  if (inArr.length == 1) {
     return 0;
-    
   } else {
-    for(var i=0; i<inArr.length; i++) {
+    for (var i = 0; i < inArr.length; i++) {
       result = result * num[i];
     }
-   return 1 + persistence(result);
+    return 1 + persistence(result);
   }
 }
+
+//--------------------------------------- Problem 7
+
+// Write a function that accepts an array of 10 integers (between 0 and 9), that returns a string of those numbers in the form of a phone number.
+
+// Example:
+// createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) // => returns "(123) 456-7890"
+
+function createPhoneNumber(numbers) {
+  return numbers.join('').replace(/(...)(...)(.*)/, '($1) $2-$3');
+}
+
+// Option solution
+// function createPhoneNumber(numbers){
+//   var format = "(xxx) xxx-xxxx";
+  
+//   for(var i = 0; i < numbers.length; i++)
+//   {
+//     format = format.replace('x', numbers[i]);
+//   }
+  
+//   return format;
+// }
