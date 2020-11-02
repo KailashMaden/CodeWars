@@ -148,3 +148,16 @@ const longest = (s1, s2) => [...new Set(s1 + s2)].sort().join('');
 // function longest(s1, s2) {
 //   return (s1+s2).split('').sort().join('').replace(/(.)\1+/g, '$1');
 // }
+
+//-------------------------------------- Problem 9
+// Delete occurrences of an element if it occurs more than n times
+// Input function: deleteNth ([1,1,1,1],2)  //Output: return [1,1]
+// Input function: deleteNth ([20,37,20,21],1) //Output: return [20,37,21]
+
+function deleteNth(arr, x) {
+  var cache = {};
+  return arr.filter(function (n) {
+    cache[n] = (cache[n] || 0) + 1;
+    return cache[n] <= x;
+  });
+}
