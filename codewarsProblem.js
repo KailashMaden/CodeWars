@@ -161,3 +161,41 @@ function deleteNth(arr, x) {
     return cache[n] <= x;
   });
 }
+
+//------------------------------------ Problem 10
+// Build a pile of Cubes
+// Input function: findNb(1071225) Output--> 45
+// Input function: findNb(91716553919377) Output--> -1
+
+function findNb(m) {
+  let n = 0;
+  let sum = 0;
+  while (sum < m) {
+    n++;
+    sum += Math.pow(n, 3);
+  }
+  return sum === m ? n : -1;
+}
+
+// Optional better solution:
+// function findNb(m) {
+//   var n = 0;
+//   while (m > 0) m -= ++n**3;
+//   return m ? -1 : n;
+// }
+
+//--------------------------------- Problem 11
+// Multiples of 3 or 5
+// If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+// Finish the solution so that it returns the sum of all the multiples of 3 or 5 below the number passed in.
+
+function solution(number) {
+  var sum = 0;
+
+  for (var i = 1; i < number; i++) {
+    if (i % 3 == 0 || i % 5 == 0) {
+      sum += i;
+    }
+  }
+  return sum;
+}
